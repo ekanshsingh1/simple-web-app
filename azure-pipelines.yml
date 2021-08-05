@@ -6,7 +6,7 @@
 trigger:
 - master
 
-pool:
+pool: ubuntu-latest
 
 steps:
 - task: Bash@3
