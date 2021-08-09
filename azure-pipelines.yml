@@ -10,9 +10,16 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: CopyFilesOverSSH@0
+  inputs:
+    sshEndpoint: 'TestVM-SSH'
+    contents: 'index.html'
+    targetFolder: '/usr/share/nginx'
+    readyTimeout: '20000'
+    failOnEmptySource: true
 - task: SSH@0
   inputs:
     sshEndpoint: 'TestVM-SSH'
     runOptions: 'commands'
-    commands: 'curl localhost'
+    commands: 'curl 127.0.0.1'
     readyTimeout: '20000'
