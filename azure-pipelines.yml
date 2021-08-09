@@ -10,7 +10,9 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: Bash@3
+- task: SSH@0
   inputs:
-    targetType: 'inline'
-    script: 'sudo apt-get update && sudo apt-get install nginx && curl localhost'
+    sshEndpoint: 'TestVM-SSH'
+    runOptions: 'commands'
+    commands: 'curl localhost'
+    readyTimeout: '20000'
