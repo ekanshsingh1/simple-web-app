@@ -2,6 +2,7 @@
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
+name: "Mybuild"
 
 trigger:
 - master
@@ -23,3 +24,4 @@ steps:
     runOptions: 'commands'
     commands: 'curl 127.0.0.1'
     readyTimeout: '20000'
+
